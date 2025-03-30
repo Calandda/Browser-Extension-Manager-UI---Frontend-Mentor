@@ -1,15 +1,95 @@
-* {
-    background-color: pink;
+.colorBG_Neutral900{
+    background-color: hsl(227,75%,14%);
+}
+.colorBG_Neutral800{
+    background-color: hsl(226,25%, 17%);
+}
+.colorBG_Neutral700{
+    background-color: hsl(225, 23%, 24%);
+}
+.colorBG_Neutral600{
+    background-color: hsl(226, 11%, 37%);
+}
+.colorBG_Neutral300{
+    background-color: hsl(0,0%,78%);
+}
+.colorBG_Neutral200{
+    background-color: hsl(217,61%, 90%);
+}
+.colorBG_Neutral100{
+    background-color: hsl(0, 0%, 93%);
+}
+.colorBG_Neutral0{
+    background-color: hsl(200, 60%, 99%);
+}
+.colorBG_Red400{
+    background-color: hsl(3,86%,64%);
+}
+.colorBG_Red500{
+    background-color: hsl(3, 71%, 56%);
+}
+.colorBG_Red700{
+    background-color: hsl(3, 77%, 44%);
+}
+.color_Neutral900{
+    background-color: hsl(227,75%,14%);
+}
+.color_Neutral800{
+    background-color: hsl(226,25%, 17%);
+}
+.color_Neutral700{
+    background-color: hsl(225, 23%, 24%);
+}
+.color_Neutral600{
+    background-color: hsl(226, 11%, 37%);
+}
+.color_Neutral300{
+    background-color: hsl(0,0%,78%);
+}
+.color_Neutral200{
+    background-color: hsl(217,61%, 90%);
+}
+.color_Neutral100{
+    background-color: hsl(0, 0%, 93%);
+}
+.color_Neutral0{
+    background-color: hsl(200, 60%, 99%);
+}
+.color_Red400{
+    background-color: hsl(3,86%,64%);
+}
+.color_Red500{
+    background-color: hsl(3, 71%, 56%);
+}
+.color_Red700{
+    background-color: hsl(3, 77%, 44%);
 }
 
+/**
+
+**/
+
+.borderCircle{
+    border-radius: 0.4rem;
+}
+
+.headerLogo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
 @media all and (orientation: portrait){
-    *{
-        background-color: red;
+    html{
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
     }
 }
 
 @media all and (orientation: landscape){
-    *{
-        background-color: blue;
-    }
+   
 }
