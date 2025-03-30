@@ -1,0 +1,15 @@
+* {
+    background-color: pink;
+}
+
+@media all and (orientation: portrait){
+    *{
+        background-color: red;
+    }
+}
+
+@media all and (orientation: landscape){
+    *{
+        background-color: blue;
+    }
+}
