@@ -6,11 +6,17 @@
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
         <link href = 'style.css' rel='stylesheet'>
     </head>
-    <body class = 'colorBG_Neutral300'>
-        <header class = 'headerLogo colorBG_Neutral0 borderCircle'>
+    <body class = 'colorBG_LightGradient'>
+        <header class = 'headerLogo colorBG_Neutral0 borderCircle boxShadow'>
             <img src = './assets/images/logo.svg'/>
-            <button class = 'buttonMode'></button>
+            <button class = 'buttonMode borderCircle borderRemove colorBG_Neutral100'></button>
         </header>
+        <section class = 'sectionButton'>
+            <h1 class = 'fontWeight700 color_Neutral900'>Extensions List</h1>
+            <button class = 'buttonAll color_Neutral900 colorBG_Neutral0 borderCircle200 borderRemove boxShadow'>All</button>
+            <button class = 'buttonActive color_Neutral900 colorBG_Neutral0 borderCircle200 borderRemove boxShadow'>Active</button>
+            <button class = 'buttonInactive color_Neutral900 colorBG_Neutral0  borderCircle200 borderRemove boxShadow'>Inactive</button>
+        </section>
         <script type = "module" src = './script.js'></script>
     </body>
 </html>

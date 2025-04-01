@@ -1,3 +1,6 @@
+.colorBG_LightGradient{
+    background-image: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+}
 .colorBG_Neutral900{
     background-color: hsl(227,75%,14%);
 }
@@ -32,39 +35,41 @@
     background-color: hsl(3, 77%, 44%);
 }
 .color_Neutral900{
-    background-color: hsl(227,75%,14%);
+    color: hsl(227,75%,14%);
 }
 .color_Neutral800{
-    background-color: hsl(226,25%, 17%);
+    color: hsl(226,25%, 17%);
 }
 .color_Neutral700{
-    background-color: hsl(225, 23%, 24%);
+    color: hsl(225, 23%, 24%);
 }
 .color_Neutral600{
-    background-color: hsl(226, 11%, 37%);
+    color: hsl(226, 11%, 37%);
 }
 .color_Neutral300{
-    background-color: hsl(0,0%,78%);
+    color: hsl(0,0%,78%);
 }
 .color_Neutral200{
-    background-color: hsl(217,61%, 90%);
+    color: hsl(217,61%, 90%);
 }
 .color_Neutral100{
-    background-color: hsl(0, 0%, 93%);
+    color: hsl(0, 0%, 93%);
 }
 .color_Neutral0{
-    background-color: hsl(200, 60%, 99%);
+    color: hsl(200, 60%, 99%);
 }
 .color_Red400{
-    background-color: hsl(3,86%,64%);
+    color: hsl(3,86%,64%);
 }
 .color_Red500{
-    background-color: hsl(3, 71%, 56%);
+    color: hsl(3, 71%, 56%);
 }
 .color_Red700{
-    background-color: hsl(3, 77%, 44%);
+    color: hsl(3, 77%, 44%);
 }
-
+.fontWeight700{
+    font-weight: 700;
+}
 /**
 
 **/
@@ -72,13 +77,68 @@
 .borderCircle{
     border-radius: 0.4rem;
 }
+.borderCircle200{
+    border-radius: 1rem;
+}
+.borderRemove{
+    border: 0px;
+}
+.boxShadow{
+    box-shadow: 0 1px 2px 1px hsla(0, 0%, 0%, 0.1)
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .headerLogo{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem;
+    margin-bottom: 2rem;
 }
-
+    .buttonMode{
+        background-image: url('./assets/images/icon-moon.svg');
+        background-size: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+.sectionButton{
+    display: grid;
+    grid-template-areas:
+    "header header header"
+    "buttonAll buttonActive buttonInactive";
+    grid-gap: 1rem;
+}
+    .sectionButton > h1{
+        grid-area: header;
+        padding: 0;
+        margin: 0;
+        justify-self: center;
+    }
+    .sectionButton > button{
+        height: 2rem;
+    }
+    .buttonAll{
+        grid-area: buttonAll;
+    }
+    .buttonActive{
+        grid-area: buttonActive;
+    }
+    .buttonInactive{
+        grid-area: buttonInactive;
+    }
 
 
 @media all and (orientation: portrait){
@@ -87,6 +147,12 @@
         padding: 0;
         width: 100vw;
         height: 100vh;
+    }
+    .headerLogo{
+        width: 90%;
+    }
+    .sectionButton{
+        width: 90%;
     }
 }
 
