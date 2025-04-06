@@ -11,7 +11,7 @@ class dataObject{
         console.log(this.dataJSON);
     }
     async externalJSONExtract(){
-        fetch('../data/data.json')
+        fetch('data/data.json')
             .then((response) =>{
                 return response.json();
             })
