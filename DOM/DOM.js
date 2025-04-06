@@ -1,2 +1,7 @@
+class domObject{
+    constructor(){
+    }
+}
 
-export default 'test';
+
+export default domObject;
