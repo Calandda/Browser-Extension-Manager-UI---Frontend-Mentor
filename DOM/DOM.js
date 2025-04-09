@@ -1,8 +1,7 @@
 class domObject{
     constructor(){
-       
+        this.sectionOutput = document.querySelector('.sectionOutput');
     }
-    changeColor
     buttonColorChange(buttonClass){
         const buttonAll = document.querySelector('.buttonAll');
         const buttonActive = document.querySelector('.buttonActive');
@@ -20,15 +19,21 @@ class domObject{
         buttonClicked.classList.add(colors[1]);
     }
     sectionFillData(dataJSON){
-        dataJSON.filter(this.fillDataSolo);
+        this.sectionClear();
+        for(let i = 0; i < dataJSON.length; i++){
+            this.fillDataSolo(dataJSON[i]);
+        }
     }
     fillDataSolo(dataSolo){
-        const sectionOutput = document.querySelector('.sectionOutput');
         const divList = document.createElement('div');
         divList.textContent = dataSolo;
-        sectionOutput.appendChild(divList);
+        this.sectionOutput.appendChild(divList);
     }
-    
+    sectionClear(){
+        while(this.sectionOutput.firstChild){
+            this.sectionOutput.removeChild(this.sectionOutput.firstChild);
+        }
+    };
 }
 
 
