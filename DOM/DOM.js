@@ -2,6 +2,7 @@ class domObject{
     constructor(){
        
     }
+    changeColor
     buttonColorChange(buttonClass){
         const buttonAll = document.querySelector('.buttonAll');
         const buttonActive = document.querySelector('.buttonActive');
@@ -17,6 +18,12 @@ class domObject{
         buttonActive.classList.add(colors[0]);
         buttonInactive.classList.add(colors[0]);
         buttonClicked.classList.add(colors[1]);
+    }
+    sectionFillData(buttonClass,dataJSON){
+        console.log(buttonClass);
+        console.log(dataJSON);
+    }
+    fillDataSolo(dataSolo){
     }
 }
 

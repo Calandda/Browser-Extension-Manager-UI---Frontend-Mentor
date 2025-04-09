@@ -19,6 +19,24 @@ class dataObject{
                 this.dataJSON = response;
             })
     }
+    getData(){
+        return(this.dataJSON);
+    }
+    getDataSpecific(status){
+        if(status === 'Active'){
+            return(this.dataJSON.filter(this.filterActive));
+        } else if(status === 'Inactive'){
+            return(this.dataJSON.filter(this.filterInactive));
+        } else {
+            return(this.getData());
+        }
+    }
+    filterActive(extention){
+        return(extention.isActive === true);
+    };
+    filterInactive(extention){
+        return(extention.isActive === false);
+    }
 }
 
 export default dataObject;

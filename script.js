@@ -6,13 +6,17 @@ const domOrigin = new domObject();
 
 dataOrigin.test();
 
-const bodyHTML = document.querySelector('body');
+const sectionButton = document.querySelector('.sectionButton');
 
-bodyHTML.addEventListener("click",(e)=>{
+sectionButton.addEventListener("click",(e)=>{
     let currentPress = e.target.className.split(' ')[0];
+    let buttonStatus = e.target.textContent;
+    let dataJSON = [];
     //console.log(e.target.tagName);
     if(e.target.tagName === 'BUTTON'){
         domOrigin.buttonColorChange(currentPress);
+        dataJSON = dataOrigin.getDataSpecific(buttonStatus);
+        domOrigin.sectionFillData(currentPress, dataJSON);
     }
     //dataOrigin.JSONCheck();
 })
