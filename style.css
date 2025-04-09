@@ -153,7 +153,6 @@ body{
 .sectionOutput{
     display: flex;
     justify-content: center;
-    background-color: red;
     width: 100%;
 }
 @media all and (orientation: portrait){
@@ -168,6 +167,10 @@ body{
     }
     .sectionButton{
         width: 90%;
+    }
+    .sectionOutput{
+        display: flex;
+        flex-direction: column;
     }
 }
 

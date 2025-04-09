@@ -19,12 +19,16 @@ class domObject{
         buttonInactive.classList.add(colors[0]);
         buttonClicked.classList.add(colors[1]);
     }
-    sectionFillData(buttonClass,dataJSON){
-        console.log(buttonClass);
-        console.log(dataJSON);
+    sectionFillData(dataJSON){
+        dataJSON.filter(this.fillDataSolo);
     }
     fillDataSolo(dataSolo){
+        const sectionOutput = document.querySelector('.sectionOutput');
+        const divList = document.createElement('div');
+        divList.textContent = dataSolo;
+        sectionOutput.appendChild(divList);
     }
+    
 }
 
 
