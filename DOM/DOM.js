@@ -26,7 +26,40 @@ class domObject{
     }
     fillDataSolo(dataSolo){
         const divList = document.createElement('div');
-        divList.textContent = dataSolo;
+        const divHeader = document.createElement('div');
+        const divButtons = document.createElement('div');
+
+        const dataImage = document.createElement('img');
+        const dataHeader = document.createElement('p');
+        const dataDesc = document.createElement('p');
+        const dataRemove = document.createElement('button');
+        const dataToggle = document.createElement('button');
+
+        divHeader.classList.add('divHeader');
+        dataImage.classList.add('dataImage');
+        dataHeader.classList.add('dataHeader','fontWeight700', 'color_Neutral900');
+        dataDesc.classList.add('dataDesc', 'fontSizeSmall', 'color_Neutral600');
+
+        divButtons.classList.add('divButtons');
+        dataRemove.classList.add('dataRemove', 'fontSizeMedium','fontWeight700','colorBG_Neutral0','borderCircle300');
+        dataToggle.classList.add('dataToggle', 'borderRemove', 'colorBG_Red700', 'borderCircle300');
+        divList.classList.add('divList','colorBG_Neutral0','borderCircle', 'boxShadow');
+
+        dataImage.src = dataSolo.logo;
+        dataHeader.textContent = dataSolo.name;
+        dataDesc.textContent = dataSolo.description;
+        
+        dataRemove.textContent = 'Remove';
+        
+        divHeader.appendChild(dataImage);
+        divHeader.appendChild(dataHeader);
+        divHeader.appendChild(dataDesc);
+        divButtons.appendChild(dataRemove);
+        divButtons.appendChild(dataToggle);
+        divList.appendChild(divHeader);
+
+
+        divList.appendChild(divButtons);
         this.sectionOutput.appendChild(divList);
     }
     sectionClear(){

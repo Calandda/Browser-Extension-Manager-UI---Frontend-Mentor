@@ -12,7 +12,7 @@ sectionButton.addEventListener("click",(e)=>{
     let currentPress = e.target.className.split(' ')[0];
     let buttonStatus = e.target.textContent;
     let dataJSON = [];
-    //console.log(e.target.tagName);
+    //console.log(currentPress);
     if(e.target.tagName === 'BUTTON'){
         domOrigin.buttonColorChange(currentPress);
         dataJSON = dataOrigin.getDataSpecific(buttonStatus);
@@ -20,4 +20,16 @@ sectionButton.addEventListener("click",(e)=>{
     }
     //dataOrigin.JSONCheck();
 })
+
+const timeOut = setTimeout(
+    ()=>{
+    timeFunction();}, 20);
+
+function timeFunction(){
+    domOrigin.buttonColorChange('buttonAll');
+    let dataJSON = dataOrigin.getDataSpecific('All');
+    domOrigin.sectionFillData(dataJSON);
+}
+
+
 

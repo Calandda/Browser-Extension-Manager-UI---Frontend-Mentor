@@ -78,6 +78,12 @@
 .fontWeight700{
     font-weight: 700;
 }
+.fontSizeSmall{
+    font-size: 0.8rem;
+}
+.fontSizeMedium{
+    font-size: 1rem;
+}
 /**
 
 **/
@@ -87,6 +93,9 @@
 }
 .borderCircle200{
     border-radius: 1rem;
+}
+.borderCircle300{
+    border-radius: 50px;
 }
 .borderRemove{
     border: 0px;
@@ -105,6 +114,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 }
 
 .headerLogo{
@@ -112,8 +122,6 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.6rem;
-    margin-bottom: 2rem;
 }
     .buttonMode{
         background-image: url('./assets/images/icon-moon.svg');
@@ -155,6 +163,58 @@ body{
     justify-content: center;
     width: 100%;
 }
+    .divList{
+        display: grid;
+        padding: 1rem;
+    }
+        .divHeader{
+            display: grid;
+            margin: 0px;
+            padding: 0px;
+            grid-template-columns: 1fr 6fr;
+            grid-template-rows: 1rem;
+            grid-template-areas:
+            "dataImage  dataHeader"
+            "dataImage  dataDesc"
+            ".          dataDesc"
+            ".          dataDesc";
+            grid-gap: 1rem;
+        }
+            .divHeader > *{
+                padding: 0px;
+                margin: 0px;
+            }
+            .dataImage{
+                grid-area: dataImage;
+            }
+            .dataHeader{
+                grid-area: dataHeader;
+                height: 1rem;
+            }
+            .dataDesc{
+                grid-area: dataDesc;
+            }
+        .divButtons{
+            display: flex;
+            justify-content: space-between;
+            height: 2.4rem;
+            align-items: center;
+        }
+            .divButtons > .dataRemove{
+                height: 100%;
+                width: 6rem;
+                
+                border: 1px solid hsl(226, 11%, 37%);
+            }
+            .divButtons > .dataRemove:active{
+                background-color: hsl(226, 11%, 37%);
+            }
+            .divButtons > .dataToggle{
+                height: 60%;
+                width: 3rem;
+
+            }
+        
 @media all and (orientation: portrait){
     html{
         margin: 0;
@@ -171,6 +231,7 @@ body{
     .sectionOutput{
         display: flex;
         flex-direction: column;
+        gap: 1rem;
     }
 }
 
