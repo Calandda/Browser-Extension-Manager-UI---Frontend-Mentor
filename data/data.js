@@ -2,6 +2,7 @@ class dataObject{
     constructor(){
         this.dataJSON = {};
         this.externalJSONExtract();
+
     }
     test(){
         console.log('test DATA');
@@ -30,6 +31,12 @@ class dataObject{
         } else {
             return(this.getData());
         }
+    }
+    removeData(dataSolo){
+        this.dataJSON = this.dataJSON.filter(this.filterDataSolo.bind(null,dataSolo));
+    }
+    filterDataSolo(data, dataSolo){
+        return data != dataSolo;
     }
     filterActive(extention){
         return(extention.isActive === true);

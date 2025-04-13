@@ -12,11 +12,13 @@ sectionButton.addEventListener("click",(e)=>{
     let currentPress = e.target.className.split(' ')[0];
     let buttonStatus = e.target.textContent;
     let dataJSON = [];
+    
     //console.log(currentPress);
     if(e.target.tagName === 'BUTTON'){
         domOrigin.buttonColorChange(currentPress);
         dataJSON = dataOrigin.getDataSpecific(buttonStatus);
-        domOrigin.sectionFillData(dataJSON);
+        //dataOrigin.removeData(dataJSON[0]);
+        domOrigin.sectionFillData(dataJSON,dataOrigin);
     }
     //dataOrigin.JSONCheck();
 })

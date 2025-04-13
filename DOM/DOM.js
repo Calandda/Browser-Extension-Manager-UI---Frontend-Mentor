@@ -18,13 +18,13 @@ class domObject{
         buttonInactive.classList.add(colors[0]);
         buttonClicked.classList.add(colors[1]);
     }
-    sectionFillData(dataJSON){
+    sectionFillData(dataJSON,dataObject){
         this.sectionClear();
         for(let i = 0; i < dataJSON.length; i++){
-            this.fillDataSolo(dataJSON[i]);
+            this.fillDataSolo(dataJSON[i],dataObject);
         }
     }
-    fillDataSolo(dataSolo){
+    fillDataSolo(dataSolo, dataObject){
         const divList = document.createElement('div');
         const divHeader = document.createElement('div');
         const divButtons = document.createElement('div');
@@ -58,9 +58,12 @@ class domObject{
         divButtons.appendChild(dataToggle);
         divList.appendChild(divHeader);
 
-
+        
         divList.appendChild(divButtons);
         this.sectionOutput.appendChild(divList);
+        dataRemove.addEventListener('click', (e)=>{
+            dataObject.removeData(dataSolo);
+        })
     }
     sectionClear(){
         while(this.sectionOutput.firstChild){
