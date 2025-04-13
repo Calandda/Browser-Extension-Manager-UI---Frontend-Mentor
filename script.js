@@ -18,6 +18,7 @@ sectionButton.addEventListener("click",(e)=>{
         domOrigin.buttonColorChange(currentPress);
         dataJSON = dataOrigin.getDataSpecific(buttonStatus);
         //dataOrigin.removeData(dataJSON[0]);
+        //dataOrigin.changeActive(dataJSON[0]);
         domOrigin.sectionFillData(dataJSON,dataOrigin);
     }
     //dataOrigin.JSONCheck();

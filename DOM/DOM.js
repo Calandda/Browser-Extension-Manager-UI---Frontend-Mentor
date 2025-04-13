@@ -64,6 +64,9 @@ class domObject{
         dataRemove.addEventListener('click', (e)=>{
             dataObject.removeData(dataSolo);
         })
+        dataToggle.addEventListener('click', (e)=>{
+            dataObject.changeActive(dataSolo);
+        });
     }
     sectionClear(){
         while(this.sectionOutput.firstChild){

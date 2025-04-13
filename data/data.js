@@ -35,6 +35,13 @@ class dataObject{
     removeData(dataSolo){
         this.dataJSON = this.dataJSON.filter(this.filterDataSolo.bind(null,dataSolo));
     }
+    changeActive(dataSolo){
+        for(let i = 0; i < this.dataJSON.length; i++){
+            if(dataSolo === this.dataJSON[i]){
+                this.dataJSON[i].isActive =  !(this.dataJSON[i].isActive);
+            }
+        }
+    }
     filterDataSolo(data, dataSolo){
         return data != dataSolo;
     }
