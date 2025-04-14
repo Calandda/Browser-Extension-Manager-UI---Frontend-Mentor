@@ -122,6 +122,7 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0.4rem;
 }
     .buttonMode{
         background-image: url('./assets/images/icon-moon.svg');
@@ -203,7 +204,7 @@ body{
             .divButtons > .dataRemove{
                 height: 100%;
                 width: 6rem;
-                
+
                 border: 1px solid hsl(226, 11%, 37%);
             }
             .divButtons > .dataRemove:active{
@@ -212,13 +213,12 @@ body{
             .divButtons > .dataToggle{
                 height: 60%;
                 width: 3rem;
-
             }
             .divToggleActive{
-
+                
             }
             .divToggleInactive{
-                
+
             }
 @media all and (orientation: portrait){
     html{

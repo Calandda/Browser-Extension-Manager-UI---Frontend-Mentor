@@ -18,8 +18,9 @@ class domObject{
         buttonInactive.classList.add(colors[0]);
         buttonClicked.classList.add(colors[1]);
     }
-    sectionFillData(dataJSON,dataObject){
+    sectionFillData(dataJSON,dataObject, isActive){
         this.sectionClear();
+        this.sectionOutput.dataset.isActive = isActive;
         for(let i = 0; i < dataJSON.length; i++){
             this.fillDataSolo(dataJSON[i],dataObject);
         }
@@ -48,6 +49,7 @@ class domObject{
         dataImage.src = dataSolo.logo;
         dataHeader.textContent = dataSolo.name;
         dataDesc.textContent = dataSolo.description;
+        dataToggle.textContent = dataSolo.isActive;
         
         dataRemove.textContent = 'Remove';
         
@@ -57,12 +59,12 @@ class domObject{
         divButtons.appendChild(dataRemove);
         divButtons.appendChild(dataToggle);
         divList.appendChild(divHeader);
-
+        
         
         divList.appendChild(divButtons);
         this.sectionOutput.appendChild(divList);
         dataRemove.addEventListener('click', (e)=>{
-            dataObject.removeData(dataSolo);
+            dataObject.removeData(dataSolo);          
         })
         dataToggle.addEventListener('click', (e)=>{
             dataObject.changeActive(dataSolo);
