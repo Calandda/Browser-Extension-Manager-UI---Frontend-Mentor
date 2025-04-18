@@ -8,6 +8,7 @@ dataOrigin.test();
 
 const sectionButton = document.querySelector('.sectionButton');
 const sectionOutput = document.querySelector('.sectionOutput');
+const buttonMode = document.querySelector('.buttonMode');
 
 sectionButton.addEventListener("click",(e)=>{
     let currentPress = e.target.className.split(' ')[0];
@@ -37,7 +38,14 @@ function timeFunction(){
 
 sectionOutput.addEventListener("click",(e)=>{
     let dataJSON = dataOrigin.getDataSpecific(sectionOutput.dataset.isActive);
-    domOrigin.sectionFillData(dataJSON,dataOrigin,sectionOutput.dataset.isActive)
+    domOrigin.sectionFillData(dataJSON,dataOrigin,sectionOutput.dataset.isActive);
 })
+
+buttonMode.addEventListener("click",(e)=>{
+    let dataJSON = dataOrigin.getDataSpecific(sectionOutput.dataset.isActive);
+    domOrigin.changeColorTheme(e.target.dataset.colorTheme);
+    domOrigin.sectionFillData(dataJSON,dataOrigin,sectionOutput.dataset.isActive);
+    
+});
 
 

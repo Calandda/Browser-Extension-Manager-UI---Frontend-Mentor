@@ -1,6 +1,29 @@
 class domObject{
     constructor(){
         this.sectionOutput = document.querySelector('.sectionOutput');
+        this.colorThemeIcon = ['./assets/images/icon-sun.svg','./assets/images/icon-moon.svg'];
+        this.colorTheme = [ ['colorBG_LightGradient','colorBG_Neutral0', 'colorBG_Neutral'],
+                            ['colorBG_DarkGradient','colorBG_Neutral700','colorBG_Neutral600']];
+        this.currentColorTheme = 0;
+        this.oppositeColorTheme = 1;
+
+        this.bodyColor = ['colorBG_LightGradient','colorBG_DarkGradient'];
+        this.headerLogoColor = ['colorBG_Neutral0','colorBG_Neutral700'];
+        this.buttonModeColor = ['colorBG_Neutral100','colorBG_Neutral600'];
+        this.buttonToggleActive = ['colorBG_Red700','colorBG_Neutral600'];
+
+        this.buttonClickedColor = ['colorBG_Red700'];
+        this.buttonListColor = ['colorBG_Neutral0','colorBG_Neutral700'];
+
+        this.body = document.querySelector('body');
+
+        this.headerLogo = document.querySelector('.headerLogo');
+        this.buttonMode = document.querySelector('.buttonMode');
+    
+
+        this.buttonAll = document.querySelector('.buttonAll');
+        this.buttonActive = document.querySelector('.buttonActive');
+        this.buttonInactive = document.querySelector('.buttonInactive');
     }
     buttonColorChange(buttonClass){
         const buttonAll = document.querySelector('.buttonAll');
@@ -9,14 +32,14 @@ class domObject{
         const buttonClicked = document.querySelector('.'+buttonClass);
         let colors = ['colorBG_Neutral0', 'colorBG_Red700'];
         
-        buttonAll.classList.remove(colors[0],colors[1]);
-        buttonActive.classList.remove(colors[0],colors[1]);
-        buttonInactive.classList.remove(colors[0],colors[1]);
+        buttonAll.classList.remove(this.buttonListColor[this.oppositeColorTheme],this.buttonClickedColor[0]);
+        buttonActive.classList.remove(this.buttonListColor[this.oppositeColorTheme], this.buttonClickedColor[0]);
+        buttonInactive.classList.remove(this.buttonListColor[this.oppositeColorTheme], this.buttonClickedColor[0]);
         
-        buttonAll.classList.add(colors[0]);
-        buttonActive.classList.add(colors[0]);
-        buttonInactive.classList.add(colors[0]);
-        buttonClicked.classList.add(colors[1]);
+        buttonAll.classList.add(this.buttonListColor[this.currentColorTheme]);
+        buttonActive.classList.add(this.buttonListColor[this.currentColorTheme]);
+        buttonInactive.classList.add(this.buttonListColor[this.currentColorTheme]);
+        buttonClicked.classList.add(this.buttonClickedColor[0]);
     }
     sectionFillData(dataJSON,dataObject, isActive){
         this.sectionClear();
@@ -34,7 +57,10 @@ class domObject{
         const dataHeader = document.createElement('p');
         const dataDesc = document.createElement('p');
         const dataRemove = document.createElement('button');
-        const dataToggle = document.createElement('button');
+
+        const dataToggle = document.createElement('label');
+        const dataToggleInput = document.createElement('input');
+        const dataToggleSpan = document.createElement('div');
 
         divHeader.classList.add('divHeader');
         dataImage.classList.add('dataImage');
@@ -42,21 +68,40 @@ class domObject{
         dataDesc.classList.add('dataDesc', 'fontSizeSmall', 'color_Neutral600');
 
         divButtons.classList.add('divButtons');
-        dataRemove.classList.add('dataRemove', 'fontSizeMedium','fontWeight700','colorBG_Neutral0','borderCircle300');
-        dataToggle.classList.add('dataToggle', 'borderRemove', 'colorBG_Red700', 'borderCircle300');
-        divList.classList.add('divList','colorBG_Neutral0','borderCircle', 'boxShadow');
+        dataRemove.classList.remove(this.headerLogoColor[this.oppositeColorTheme]);
+        dataRemove.classList.add(this.headerLogoColor[this.currentColorTheme]);
+        dataRemove.classList.add('dataRemove', 'fontSizeMedium','fontWeight700','borderCircle300'); //'colorBG_Neutral0',
+        dataToggle.classList.add('dataToggle', 'borderRemove',  'borderCircle300');  
+        //dataToggleInput.classList.add('dataToggleInput','borderCircle300');
+        dataToggleSpan.classList.add('dataToggleSpan', 'colorBG_Neutral0','borderCircle300'); // 
+        divList.classList.remove(this.headerLogoColor[this.oppositeColorTheme]);
+        divList.classList.add('divList','borderCircle',this.headerLogoColor[this.currentColorTheme], 'boxShadow'); // 'colorBG_Neutral0',
 
         dataImage.src = dataSolo.logo;
         dataHeader.textContent = dataSolo.name;
         dataDesc.textContent = dataSolo.description;
-        dataToggle.textContent = dataSolo.isActive;
+        //dataToggleInput.setAttribute('type','checkbox');
+        //dataToggle.textContent = dataSolo.isActive;
         
         dataRemove.textContent = 'Remove';
+
+        if(dataSolo.isActive === true){
+            dataToggle.style.justifyContent = 'end';
+            dataToggle.classList.add(this.buttonToggleActive[0]);
+        } else if(dataSolo.isActive === false){
+            dataToggle.style.justifyContent = 'start';
+            dataToggle.classList.add(this.buttonToggleActive[1]);
+        }
         
         divHeader.appendChild(dataImage);
         divHeader.appendChild(dataHeader);
         divHeader.appendChild(dataDesc);
         divButtons.appendChild(dataRemove);
+
+
+        //dataToggle.appendChild(dataToggleInput);
+        dataToggle.appendChild(dataToggleSpan);
+
         divButtons.appendChild(dataToggle);
         divList.appendChild(divHeader);
         
@@ -74,6 +119,37 @@ class domObject{
         while(this.sectionOutput.firstChild){
             this.sectionOutput.removeChild(this.sectionOutput.firstChild);
         }
+    };
+    changeColorTheme(currentColor){
+        if(currentColor == 'light'){
+            this.currentColorTheme = 1;
+            this.oppositeColorTheme = 0;
+            this.buttonMode.dataset.colorTheme = 'dark';
+            this.buttonMode.style.backgroundImage = "url(" + this.colorThemeIcon[0]+")";
+        } else if(currentColor == 'dark'){
+            this.currentColorTheme = 0;
+            this.oppositeColorTheme = 1;
+            this.buttonMode.dataset.colorTheme = 'light';
+            this.buttonMode.style.backgroundImage = "url(" + this.colorThemeIcon[1]+")";
+        }
+
+        this.body.classList.add(this.bodyColor[this.currentColorTheme]);
+        this.body.classList.remove(this.bodyColor[this.oppositeColorTheme]);
+
+        this.headerLogo.classList.add(this.headerLogoColor[this.currentColorTheme]);
+        this.headerLogo.classList.remove(this.headerLogoColor[this.oppositeColorTheme]);
+
+        this.buttonMode.classList.add(this.buttonModeColor[this.currentColorTheme]);
+        this.buttonMode.classList.remove(this.buttonModeColor[this.oppositeColorTheme]);
+
+        this.buttonAll.classList.add(this.buttonListColor[this.currentColorTheme]);
+        this.buttonAll.classList.remove(this.buttonListColor[this.oppositeColorTheme]);
+
+        this.buttonActive.classList.add(this.buttonListColor[this.currentColorTheme]);
+        this.buttonActive.classList.remove(this.buttonListColor[this.oppositeColorTheme]);
+
+        this.buttonInactive.classList.add(this.buttonListColor[this.currentColorTheme]);
+        this.buttonInactive.classList.remove(this.buttonListColor[this.oppositeColorTheme]);
     };
 }
 
