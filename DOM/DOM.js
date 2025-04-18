@@ -11,6 +11,8 @@ class domObject{
         this.headerLogoColor = ['colorBG_Neutral0','colorBG_Neutral700'];
         this.buttonModeColor = ['colorBG_Neutral100','colorBG_Neutral600'];
         this.buttonToggleActive = ['colorBG_Red700','colorBG_Neutral600'];
+        this.fontHeavyColor = ['color_Neutral900','color_Neutral0'];
+        this.fontLightColor = ['color_Neutral600', 'color_Neutral200']; 
 
         this.buttonClickedColor = ['colorBG_Red700'];
         this.buttonListColor = ['colorBG_Neutral0','colorBG_Neutral700'];
@@ -19,8 +21,8 @@ class domObject{
 
         this.headerLogo = document.querySelector('.headerLogo');
         this.buttonMode = document.querySelector('.buttonMode');
-    
 
+        this.buttonHeader = document.querySelector('h1');
         this.buttonAll = document.querySelector('.buttonAll');
         this.buttonActive = document.querySelector('.buttonActive');
         this.buttonInactive = document.querySelector('.buttonInactive');
@@ -64,12 +66,14 @@ class domObject{
 
         divHeader.classList.add('divHeader');
         dataImage.classList.add('dataImage');
-        dataHeader.classList.add('dataHeader','fontWeight700', 'color_Neutral900');
-        dataDesc.classList.add('dataDesc', 'fontSizeSmall', 'color_Neutral600');
+        dataHeader.classList.add('dataHeader','fontWeight700', this.fontHeavyColor[this.currentColorTheme]);
+        dataHeader.classList.remove(this.fontHeavyColor[this.oppositeColorTheme]);
+        dataDesc.classList.add('dataDesc', 'fontSizeSmall', this.fontLightColor[this.currentColorTheme]);
+        dataDesc.classList.remove(this.fontHeavyColor[this.oppositeColorTheme]);
 
         divButtons.classList.add('divButtons');
-        dataRemove.classList.remove(this.headerLogoColor[this.oppositeColorTheme]);
-        dataRemove.classList.add(this.headerLogoColor[this.currentColorTheme]);
+        dataRemove.classList.remove(this.headerLogoColor[this.oppositeColorTheme], this.fontHeavyColor[this.oppositeColorTheme]);
+        dataRemove.classList.add(this.headerLogoColor[this.currentColorTheme], this.fontHeavyColor[this.currentColorTheme]);
         dataRemove.classList.add('dataRemove', 'fontSizeMedium','fontWeight700','borderCircle300'); //'colorBG_Neutral0',
         dataToggle.classList.add('dataToggle', 'borderRemove',  'borderCircle300');  
         //dataToggleInput.classList.add('dataToggleInput','borderCircle300');
@@ -139,17 +143,19 @@ class domObject{
         this.headerLogo.classList.add(this.headerLogoColor[this.currentColorTheme]);
         this.headerLogo.classList.remove(this.headerLogoColor[this.oppositeColorTheme]);
 
+        this.buttonHeader.classList.add(this.fontHeavyColor[this.currentColorTheme]);
+        this.buttonHeader.classList.remove(this.fontHeavyColor[this.oppositeColorTheme]);
         this.buttonMode.classList.add(this.buttonModeColor[this.currentColorTheme]);
         this.buttonMode.classList.remove(this.buttonModeColor[this.oppositeColorTheme]);
 
-        this.buttonAll.classList.add(this.buttonListColor[this.currentColorTheme]);
-        this.buttonAll.classList.remove(this.buttonListColor[this.oppositeColorTheme]);
+        this.buttonAll.classList.add(this.buttonListColor[this.currentColorTheme],this.fontHeavyColor[this.currentColorTheme]);
+        this.buttonAll.classList.remove(this.buttonListColor[this.oppositeColorTheme], this.fontHeavyColor[this.oppositeColorTheme]);
 
-        this.buttonActive.classList.add(this.buttonListColor[this.currentColorTheme]);
-        this.buttonActive.classList.remove(this.buttonListColor[this.oppositeColorTheme]);
+        this.buttonActive.classList.add(this.buttonListColor[this.currentColorTheme], this.fontHeavyColor[this.currentColorTheme]);
+        this.buttonActive.classList.remove(this.buttonListColor[this.oppositeColorTheme], this.fontHeavyColor[this.oppositeColorTheme]);
 
-        this.buttonInactive.classList.add(this.buttonListColor[this.currentColorTheme]);
-        this.buttonInactive.classList.remove(this.buttonListColor[this.oppositeColorTheme]);
+        this.buttonInactive.classList.add(this.buttonListColor[this.currentColorTheme], this.fontHeavyColor[this.currentColorTheme]);
+        this.buttonInactive.classList.remove(this.buttonListColor[this.oppositeColorTheme], this.fontHeavyColor[this.oppositeColorTheme]);
     };
 }
 
