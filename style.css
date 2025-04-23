@@ -81,25 +81,12 @@
 .fontWeight700{
     font-weight: 700;
 }
-.fontSizeSmall{
-    font-size: 0.8rem;
-}
-.fontSizeMedium{
-    font-size: 1rem;
-}
+
 /**
 
 **/
 
-.borderCircle{
-    border-radius: 0.4rem;
-}
-.borderCircle200{
-    border-radius: 1rem;
-}
-.borderCircle300{
-    border-radius: 50px;
-}
+
 .borderRemove{
     border: 0px;
 }
@@ -135,33 +122,7 @@ body{
         width: 2.4rem;
         height: 2.4rem;
     }
-.sectionButton{
-    display: grid;
-    grid-template-areas:
-    "header header header"
-    "buttonAll buttonActive buttonInactive";
-    grid-gap: 1rem;
-}
-    .sectionButton > h1{
-        grid-area: header;
-        padding: 0;
-        margin: 0;
-        justify-self: center;
-        font-family: notoSans_Medium;
-        font-weight: 700;
-    }
-    .sectionButton > button{
-        height: 2rem;
-    }
-    .buttonAll{
-        grid-area: buttonAll;
-    }
-    .buttonActive{
-        grid-area: buttonActive;
-    }
-    .buttonInactive{
-        grid-area: buttonInactive;
-    }
+
 .sectionOutput{
     display: flex;
     justify-content: center;
@@ -236,6 +197,21 @@ body{
 
             }
 @media all and (orientation: portrait){
+    .fontSizeSmall{
+        font-size: 0.8rem;
+    }
+    .fontSizeMedium{
+        font-size: 1rem;
+    }
+    .borderCircle{
+        border-radius: 0.4rem;
+    }
+    .borderCircle200{
+        border-radius: 1rem;
+    }
+    .borderCircle300{
+        border-radius: 50px;
+    }
     html{
         margin: 0;
         padding: 0;
@@ -247,7 +223,32 @@ body{
     }
     .sectionButton{
         width: 90%;
+        display: grid;
+        grid-template-areas:
+        "header header header"
+        "buttonAll buttonActive buttonInactive";
+        grid-gap: 1rem;
     }
+        .sectionButton > h1{
+            grid-area: header;
+            padding: 0;
+            margin: 0;
+            justify-self: center;
+            font-family: notoSans_Medium;
+            font-weight: 700;
+        }
+        .sectionButton > button{
+            height: 2rem;
+        }
+        .buttonAll{
+            grid-area: buttonAll;
+        }
+        .buttonActive{
+            grid-area: buttonActive;
+        }
+        .buttonInactive{
+            grid-area: buttonInactive;
+        }
     .sectionOutput{
         display: flex;
         flex-direction: column;
@@ -256,5 +257,54 @@ body{
 }
 
 @media all and (orientation: landscape){
-   
+    .fontSizeSmall{
+        font-size: 1.2rem;
+    }
+    .fontSizeMedium{
+        font-size: 1.6rem;
+    }
+    .fontSizeLarge{
+        font-size: 2rem;
+    }
+    .borderCircle{
+        border-radius: 2rem;
+    }
+    .borderCircle200{
+        border-radius: 1rem;
+    }
+    .borderCircle300{
+        border-radius: 50px;
+    }
+    body{
+        padding: 2rem 10rem;
+    }
+    .headerLogo{
+        width: 100%;
+        padding: 1rem;
+    }
+    .sectionButton{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 10fr 1fr 1fr 1fr;
+        grid-gap: 1rem;
+        align-items: center;
+    }
+        .sectionButton > button{
+            height: 3rem;
+        }
+    .sectionOutput{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: 14rem;
+        grid-gap: 1rem;
+    }
+        .divList{
+            padding: 2rem;
+        }
+            .divButtons{
+            }
+                .divButtons > .dataRemove{
+                    width: 8rem;
+                }
+
 }
